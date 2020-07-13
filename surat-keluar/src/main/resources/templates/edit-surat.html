@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <title>Form Ubah Data</title>
+</head>
+<body>
+<div>
+    <h3>Ubah Data Surat</h3>
+    <div>
+        <form action="#" th:action="@{/simpan}" th:object="${surat}" method="post">
+            <table>
+                <tr>
+                    <td>Nomor Surat</td>
+                    <td><input type="text" th:field="*{noSurat}" id="noSurat" readonly="true"></td>
+                </tr>
+                <tr>
+                    <td>Tanggal Surat</td>
+                    <td><input type="date" th:field="*{tanggalSurat}" id="tanggalSurat"></td>
+                </tr>
+                <tr>
+                    <td>Perihal</td>
+                    <td><input type="text" th:field="*{perihal}" id="perihal"></td>
+                </tr>
+                <tr>
+                    <td>Tujuan</td>
+                    <td><input type="text" th:field="*{tujuan}" id="tujuan"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Simpan"></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+</body>
+</html>

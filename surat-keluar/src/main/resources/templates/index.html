@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Aplikasi Surat Keluar</title>
+</head>
+<body>
+<h1>Selamat Datang di Aplikasi Surat Keluar</h1>
+
+<a href="/tambah">Tambah Data</a>
+
+<div th:switch="${surat}">
+    <div>
+        <h2 th:case="null">Tidak ada data</h2>
+        <div th:case="*">
+            <table>
+                <thead>
+                <tr>
+                    <th>No Surat</th>
+                    <th>Tanggal Surat</th>
+                    <th>Perihal</th>
+                    <th>Tujuan</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="surat : ${surat}">
+                    <td th:text="${surat.noSurat}"></td>
+                    <td th:text="${surat.tanggalSurat}"></td>
+                    <td th:text="${surat.perihal}"></td>
+                    <td th:text="${surat.tujuan}"></td>
+                    <td><a th:href="@{/ubah/{noSurat}(noSurat=${surat.noSurat})}">ubah</a></td>
+                    <td><a th:href="@{/hapus/{noSurat}(noSurat=${surat.noSurat})}">hapus</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
